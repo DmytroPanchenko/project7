@@ -9,8 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
- :root {
+:root {
   /* colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
@@ -18,10 +17,12 @@
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
   --text-color: #000;
+  --overlay-text-color: #fff;
 
   /* fonts */
+  --museo-font-family: "museo-sans","source-han-sans-simplified-c","Source Sans Pro","noto-sans-cjk-jp",arial,helvetica,sans-serif;
   --body-font-family: roboto, roboto-fallback;
-  --heading-font-family: var(--body-font-family);
+  --heading-font-family: var(--museo-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
@@ -41,6 +42,77 @@
   --nav-height: 64px;
 
 }
+
+
+@font-face {
+  font-family:'museo-sans';
+  src: url('/fonts/museosans-100.otf') format("opentype");
+  font-weight:100;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:'museo-sans';
+  src: url('/fonts/museosans-100-italic.otf') format("opentype");
+  font-weight:100;
+  font-style:italic;
+}
+
+@font-face {
+  font-family:'museo-sans';
+  src: url('/fonts/museosans-300.otf') format("opentype");
+  font-weight:300;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:'museo-sans';
+  src: url('/fonts/museosans-300-italic.otf') format("opentype");
+  font-weight:100;
+  font-style:italic;}
+
+@font-face {
+  font-family:'museo-sans';
+  src: url('/fonts/museosans-500.otf') format("opentype");
+  font-weight:500;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:'museo-sans';
+  src: url('/fonts/museosans-500-italic.otf') format("opentype");
+  font-weight:100;
+  font-style:italic;
+}
+
+@font-face {
+  font-family:'museo-sans';
+  src:url('/fonts/museosans-700.otf') format("opentype");
+  font-weight:700;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:'museo-sans';
+  src:url('/fonts/museosans-700-italic.otf') format("opentype");
+  font-weight:100;
+  font-style:italic;
+}
+
+@font-face {
+  font-family:'museo-sans';
+  src:url('/fonts/museosans-900.otf') format("opentype");
+  font-weight:900;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:'museo-sans';
+  src:url('/fonts/museosans-900-italic.otf') format("opentype");
+  font-weight:100;
+  font-style:italic;
+}
+
 
 @font-face {
   font-family: roboto-fallback;
@@ -238,8 +310,18 @@ main .section {
   }
 }
 
+/* TODO */
+/*
 @media (min-width: 900px) {
   .section > div {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+*/
+
+@media (min-width: 900px) {
+  .section .textcontent {
     max-width: 1200px;
     margin: auto;
   }
