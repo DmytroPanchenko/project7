@@ -328,3 +328,7 @@ main .section {
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
+
+.default-content-wrapper h2:first-child {
+  margin-top: 0;
+}
