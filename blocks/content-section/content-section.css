@@ -1,0 +1,6 @@
+.content-section-container {
+    background-image: url('/blocks/content-section/content-section-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
