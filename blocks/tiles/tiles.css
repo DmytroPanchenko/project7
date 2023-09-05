@@ -1,0 +1,47 @@
+.tiles {
+    display: flex;
+    flex-wrap: wrap; /* Allow tiles to wrap to the next row */
+    justify-content: space-between; /* Distribute space between tiles evenly */
+}
+
+.tiles > div {
+    /* flex: 1 1 260px; /* 25% for 4 tiles, minus some margin */
+    width: 280px;
+    padding: 5px 15px; /* Adjust as needed */
+    box-sizing: border-box; /* Make sure padding and border are included in the element's total width and height */
+}
+
+/* Phone View */
+@media (max-width: 600px) {
+    .tiles > div {
+        flex: 1 1 100%; /* Take the full width of the container */
+        margin: 10px 0; /* Adjust as needed */
+    }
+}
+
+.image-container picture,
+.image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 180px;
+    max-height: 180px; /* Adjust as needed based on your margins */
+    object-fit: contain; /* This will ensure images cover the container without distortion */
+    margin: auto;
+}
+
+
+main .tiles.numbers p:first-child {
+    font-family: var(--museo-font-family);
+    font-weight: 500;
+    font-size: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+main .tiles.numbers p:first-child strong {
+    background-image: linear-gradient(90.38deg,#00fff0 4.77%,#00f6ff 46.73%,#b896ff 90.19%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-color: #000;
+}
