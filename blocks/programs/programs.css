@@ -1,0 +1,48 @@
+.programs {
+    display: flex;
+    flex-wrap: wrap; /* Allow tiles to wrap to the next row */
+    justify-content: space-between; /* Distribute space between tiles evenly */
+}
+
+.programs > div {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    padding: 5px 15px; /* Adjust as needed */
+    box-sizing: border-box; /* Make sure padding and border are included in the element's total width and height */
+    border: solid 1px;
+    margin-bottom: 1rem;
+    min-height: 17em;
+}
+
+.programs > div > p:first-child {
+    font-family: var(--heading-font-family);
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    font-size: var(--heading-font-size-s);
+}
+
+.programs > div > p {
+    font-family: var(--body-font-family);
+    font-weight: 300;
+    /*line-height: 1.25;*/
+    margin-top: .25em;
+    margin-bottom: .25em;
+    font-size: var(--body-font-size-s);
+}
+
+
+.programs .button.secondary {
+    margin-top: auto;
+    font-size: var(--body-font-size-s);
+}
+
+/* Phone View */
+@media (max-width: 600px) {
+    .programs > div {
+        flex: 1 1 100%; /* Take the full width of the container */
+        margin: 10px 0; /* Adjust as needed */
+    }
+}
