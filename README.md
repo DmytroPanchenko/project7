@@ -1,9 +1,9 @@
 # Your Project's Title...
-Your project's description...
+Demo project for the Tech Talk
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--project7--dmytropanchenko.hlx.page/en/
+- Live: https://main--project7--dmytropanchenko.hlx.live/en/
 
 ## Installation
 
