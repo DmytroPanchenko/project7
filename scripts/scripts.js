@@ -11,6 +11,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  fetchPlaceholders
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -67,10 +68,18 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
-  document.documentElement.lang = 'en';
+  function decorateLanguage() {
+    let pathParts = window.location.pathname.split('/');
+    let localeElement = pathParts[1] ? pathParts[1] : '';
+    document.documentElement.lang = (localeElement.length === 2) ? localeElement : 'en';
+  }
+
+  decorateLanguage();
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
+    await fetchPlaceholders(document.documentElement.lang);
+
     decorateMain(main);
     document.body.classList.add('appear');
     await waitForLCP(LCP_BLOCKS);

@@ -11,12 +11,7 @@ export default async function decorate(block) {
 
   // fetch footer content
   let footerPath = cfg.footer || '/footer';
-
-  let pathParts = window.location.pathname.split('/');
-  let localeElement = pathParts[1] ? pathParts[1] : '';
-  if (localeElement.length === 2) {
-    footerPath = `/${localeElement}${footerPath}`;
-  }
+  footerPath = `/${document.documentElement.lang}${footerPath}`;
 
   const resp = await fetch(`${footerPath}.plain.html`, window.location.pathname.endsWith('/footer') ? { cache: 'reload' } : {});
 

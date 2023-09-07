@@ -94,11 +94,7 @@ export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   let navPath = navMeta ? new URL(navMeta).pathname : '/nav';
 
-  let pathParts = window.location.pathname.split('/');
-  let localeElement = pathParts[1] ? pathParts[1] : '';
-  if (localeElement.length === 2) {
-    navPath = `/${localeElement}${navPath}`;
-  }
+  navPath = `/${document.documentElement.lang}${navPath}`;
 
   const resp = await fetch(`${navPath}.plain.html`);
 
@@ -149,13 +145,12 @@ export default async function decorate(block) {
     navWrapper.append(nav);
     block.append(navWrapper);
 
-    var navBrandPicture = block.querySelector('.nav-brand picture');
-    if (navBrandPicture && localeElement && (localeElement.length === 2)) {
+    // making the logo clickable; pointing it to the homepage
+    const navBrandPicture = block.querySelector('.nav-brand picture');
+    if (navBrandPicture) {
       navBrandPicture.addEventListener('click', function() {
-        window.location.href = `/${localeElement}`;
+        window.location.href = `/${document.documentElement.lang}/`;
       });
-
-      // Add a pointer cursor to indicate clickability
       navBrandPicture.style.cursor = 'pointer';
     }
   }
