@@ -11,5 +11,3 @@ document.querySelectorAll('a').forEach((a) => {
 
 // Core Web Vitals RUM collection
 sampleRUM('cwv');
-
-// add more delayed functionality here

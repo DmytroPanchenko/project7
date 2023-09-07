@@ -21,12 +21,6 @@ export default function decorate(block) {
 
         card.appendChild(link);
         card.removeChild(lastParagraph);
-//        console.log(`+++ ${link}`);
-//        Array.from(card.children).forEach(tile => {
-//            console.log(`+++ ${tile.tagName}`);
-//            block.appendChild(tile);
-//        });
-//        block.removeChild(rowDiv);
     });
 
 }

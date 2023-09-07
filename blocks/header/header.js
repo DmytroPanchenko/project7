@@ -148,5 +148,15 @@ export default async function decorate(block) {
     navWrapper.className = 'nav-wrapper';
     navWrapper.append(nav);
     block.append(navWrapper);
+
+    var navBrandPicture = block.querySelector('.nav-brand picture');
+    if (navBrandPicture && localeElement && (localeElement.length === 2)) {
+      navBrandPicture.addEventListener('click', function() {
+        window.location.href = `/${localeElement}`;
+      });
+
+      // Add a pointer cursor to indicate clickability
+      navBrandPicture.style.cursor = 'pointer';
+    }
   }
 }
