@@ -85,6 +85,12 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+const validateEmail = (email) => {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
+};
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -124,6 +130,34 @@ export default async function decorate(block) {
           }
         });
       });
+    }
+
+    const navTools = nav.querySelector('.nav-tools');
+    if (navTools) {
+      const loginItem = document.createElement('div');      
+      const authorizableId = localStorage.getItem('authorizable_id');
+      let text = '?';
+      if (!authorizableId) {
+        text = '<a href="#" class="loginbtn">Login</a>';
+      } else {
+        text = authorizableId.charAt(0).toUpperCase();
+      }
+      loginItem.innerHTML = text;
+
+      navTools.parentNode.insertBefore(loginItem, navTools.nextSibling);
+
+      const loginButtons = navTools.parentNode.querySelectorAll(':scope .loginbtn');
+      loginButtons.forEach(function(btn) {
+          btn.addEventListener("click", function(e) {
+            const userEmail = window.prompt("Enter User Email:");
+            if (validateEmail(userEmail)) {
+              localStorage.setItem('authorizable_id', userEmail);
+              setTimeout(() => { location.reload(); });
+            } else {
+              alert ('Not a valid email');
+            }
+        });
+      });      
     }
 
     // hamburger for mobile
