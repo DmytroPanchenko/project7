@@ -1,6 +1,6 @@
 export default function decorate(block) {
     // Select all child div elements of .hero.block
-    const heroBlocks = document.querySelectorAll('.hero.block > div');
+    const heroBlocks = block.querySelectorAll(':scope > div');
 
 // Loop over each heroBlock
     heroBlocks.forEach(function(block) {
@@ -9,4 +9,14 @@ export default function decorate(block) {
             block.classList.add('textcontent');
         }
     });
+
+    const buttons = block.querySelectorAll(':scope .button.primary');
+    buttons.forEach(function(btn) {
+        btn.classList.add('btnconversion');
+        btn.addEventListener("click", function(e) {
+            alert("Not implemented");
+        });
+    });
+
+
 }
